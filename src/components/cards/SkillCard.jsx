@@ -1,24 +1,14 @@
-
 const SkillCard = ({ category, skills }) => {
-    return (
-        <div
-            style={{
-                border: "1px solid black",
-                padding: "20px",
-                margin: "10px",
-                borderRadius: "8px",
-            }}  
-        >
-            <h3>{category}</h3>
-
-            <ul>
-                {skills.map((skill) => (
-                    <li key={skill}>{skill}</li>
-                ))}
-            </ul>
-
-        </div>
-    )
-}
+  return (
+    <div className="skill-card">
+      <h3 className="card-heading">{category}</h3>
+      <div className="chips">
+        {skills.map((skill) => (
+          <span className="chip" key={skill}>{skill}</span>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default SkillCard;
