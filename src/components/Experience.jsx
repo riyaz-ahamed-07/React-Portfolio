@@ -40,7 +40,7 @@ const Experience = () => {
         <div key={idx} className="neo-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '10px' }}>
             <div>
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 900, margin: '0 0 6px 0' }}>{exp.role}</h3>
+              <h3 className="neo-card-role-title">{exp.role}</h3>
               <div className="neo-card-meta" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
                 <span><strong>{exp.company}</strong></span>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>

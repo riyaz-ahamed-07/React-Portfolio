@@ -1,11 +1,66 @@
-import { ExternalLink, Code2, Image as ImageIcon } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, Code2, Image as ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ProjectCard = ({ title, description, technologies, github, demo, badge, imageUrl }) => {
+const ProjectCard = ({ title, description, technologies, github, demo, badge, imageUrl, images }) => {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  const imageList = Array.isArray(images) && images.length > 0 
+    ? images 
+    : (Array.isArray(imageUrl) ? imageUrl : (imageUrl ? [imageUrl] : []));
+
+  const hasMultiple = imageList.length > 1;
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setCurrentIdx((prev) => (prev === 0 ? imageList.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setCurrentIdx((prev) => (prev === imageList.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <div className="neo-image-card">
       <div className="neo-image-slot">
-        {imageUrl ? (
-          <img src={imageUrl} alt={`Preview screenshot of ${title}`} loading="lazy" />
+        {imageList.length > 0 ? (
+          <>
+            <img
+              src={imageList[currentIdx]}
+              alt={`Preview screenshot of ${title} (${currentIdx + 1}/${imageList.length})`}
+              loading="lazy"
+            />
+            {hasMultiple && (
+              <>
+                <button
+                  className="neo-carousel-btn neo-carousel-prev"
+                  onClick={handlePrev}
+                  aria-label="Previous project screenshot"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  className="neo-carousel-btn neo-carousel-next"
+                  onClick={handleNext}
+                  aria-label="Next project screenshot"
+                >
+                  <ChevronRight size={16} />
+                </button>
+                <div className="neo-carousel-dots">
+                  {imageList.map((_, idx) => (
+                    <span
+                      key={idx}
+                      className={`neo-carousel-dot ${idx === currentIdx ? 'active' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentIdx(idx);
+                      }}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </>
         ) : (
           <div className="neo-image-placeholder">
             <ImageIcon size={28} />

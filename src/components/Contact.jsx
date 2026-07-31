@@ -19,7 +19,7 @@ const Contact = () => {
       </div>
 
       <div className="neo-card" style={{ background: '#FFFDF5' }}>
-        <h3 style={{ fontSize: '1.8rem', fontWeight: 900, margin: '0 0 12px 0', letterSpacing: '-0.02em' }}>
+        <h3 className="neo-contact-heading">
           Let’s Build Something Exceptional Together ⚡
         </h3>
         <p style={{ fontSize: '1.1rem', color: '#2D3748', lineHeight: 1.6, marginBottom: '24px' }}>

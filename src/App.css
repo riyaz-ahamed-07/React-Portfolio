@@ -24,6 +24,37 @@
   position: sticky;
   top: 16px;
   z-index: 1000;
+  box-sizing: border-box;
+}
+
+.neo-navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+}
+
+.neo-mobile-toggle {
+  display: none;
+  background: #FDC800;
+  color: #121212;
+  border: 2.5px solid #121212;
+  box-shadow: 3px 3px 0px #121212;
+  border-radius: 8px;
+  padding: 6px 10px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.neo-mobile-toggle:hover {
+  background: #FF5376;
+  color: #FFFFFF;
+}
+
+.neo-mobile-toggle:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #121212;
 }
 
 .neo-brand h2 {
@@ -36,9 +67,10 @@
   padding: 4px 12px;
   border: 2.5px solid #121212;
   box-shadow: 3px 3px 0px #121212;
+  border-radius: 6px;
 }
 
-.neo-navbar ul {
+.neo-nav-links {
   list-style: none;
   display: flex;
   gap: 14px;
@@ -266,6 +298,94 @@
   transition: transform 0.3s ease;
 }
 
+/* Image Carousel Controls */
+.neo-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #FDC800;
+  color: #121212;
+  border: 2px solid #121212;
+  box-shadow: 2px 2px 0px #121212;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+
+.neo-carousel-btn:hover {
+  background: #FF5376;
+  color: #FFFFFF;
+  transform: translateY(-50%) translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #121212;
+}
+
+.neo-carousel-btn:active {
+  transform: translateY(-50%) translate(1px, 1px);
+  box-shadow: 1px 1px 0px #121212;
+}
+
+.neo-carousel-prev {
+  left: 8px;
+}
+
+.neo-carousel-next {
+  right: 8px;
+}
+
+.neo-carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+  background: rgba(18, 18, 18, 0.65);
+  padding: 4px 8px;
+  border-radius: 12px;
+  border: 1.5px solid #121212;
+}
+
+.neo-carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #121212;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.neo-carousel-dot.active {
+  background: #FDC800;
+  transform: scale(1.3);
+}
+
+/* Certificate Specific Landscape Image Slot */
+.neo-cert-slot {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  max-height: 260px;
+  background: #FFFDF5;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.neo-cert-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+}
+
 .neo-card-body {
   padding: 16px 20px;
   display: flex;
@@ -287,6 +407,20 @@
 
 .neo-title-text {
   line-height: 1.25;
+}
+
+.neo-card-role-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.neo-contact-heading {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
 }
 
 .neo-card-text {
@@ -467,19 +601,62 @@ input:focus-visible,
 
   .neo-navbar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 16px;
+    align-items: stretch;
+    padding: 14px 18px;
+    gap: 0;
   }
 
-  .neo-navbar ul {
-    gap: 8px;
+  .neo-navbar-header {
     width: 100%;
   }
 
+  .neo-mobile-toggle {
+    display: inline-flex;
+  }
+
+  .neo-nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 3px solid #121212;
+  }
+
+  .neo-nav-links.is-open {
+    display: flex;
+  }
+
   .neo-nav-link {
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    display: block;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Scaled headings for mobile devices */
+  .neo-brand h2 {
+    font-size: 1.15rem;
+    padding: 3px 10px;
+  }
+
+  .neo-section-header {
+    padding: 10px 16px;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .neo-section-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .neo-section-header svg {
+    width: 20px;
+    height: 20px;
   }
 
   .neo-hero-card {
@@ -487,11 +664,48 @@ input:focus-visible,
   }
 
   .neo-hero-card h1 {
-    font-size: 2.1rem;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .neo-hero-eyebrow {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    margin-bottom: 14px;
   }
 
   .neo-hero-lead {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
+    line-height: 1.5;
+    margin-bottom: 22px;
+  }
+
+  .neo-card-title {
+    font-size: 1.08rem;
+    min-height: auto;
+  }
+
+  .neo-title-text {
+    font-size: 1.08rem;
+  }
+
+  .neo-card-role-title {
+    font-size: 1.15rem;
+  }
+
+  .neo-contact-heading {
+    font-size: 1.3rem;
+  }
+
+  .neo-card-text {
+    font-size: 0.88rem;
+    min-height: auto;
+  }
+
+  .neo-badge {
+    font-size: 0.72rem;
+    padding: 3px 8px;
   }
 
   .neo-btn-group {
@@ -510,6 +724,77 @@ input:focus-visible,
 
   .neo-image-slot {
     max-height: 180px;
+  }
+
+  .neo-cert-slot {
+    max-height: 230px;
+    padding: 0;
+  }
+}
+
+/* Extra small mobile devices (phones < 480px) */
+@media (max-width: 480px) {
+  .app-shell {
+    padding: 14px 12px;
+  }
+
+  .neo-brand h2 {
+    font-size: 1.0rem;
+    padding: 3px 8px;
+  }
+
+  .neo-section-header {
+    padding: 8px 12px;
+    gap: 6px;
+  }
+
+  .neo-section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .neo-hero-card {
+    padding: 18px 14px;
+  }
+
+  .neo-hero-card h1 {
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+
+  .neo-hero-eyebrow {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+  }
+
+  .neo-hero-lead {
+    font-size: 0.92rem;
+  }
+
+  .neo-card {
+    padding: 18px 14px;
+  }
+
+  .neo-card-title,
+  .neo-title-text {
+    font-size: 0.98rem;
+  }
+
+  .neo-card-role-title {
+    font-size: 1.05rem;
+  }
+
+  .neo-contact-heading {
+    font-size: 1.15rem;
+  }
+
+  .neo-btn {
+    font-size: 0.88rem;
+    padding: 10px 14px;
+  }
+
+  .neo-cert-slot {
+    max-height: 200px;
+    padding: 0;
   }
 }
 
