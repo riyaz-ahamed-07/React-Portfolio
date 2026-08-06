@@ -11,3 +11,6 @@
 .footer-links a{display:inline-flex;align-items:center;gap:7px;border:1px solid #ffffff45;border-radius:999px;padding:8px 12px}.footer-links a:hover{background:var(--lime);color:#10110f;border-color:var(--lime)}.footer-links i{display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:#fff;color:#10110f;font:700 8px monospace;font-style:normal}
 
 @media(max-width:800px){.credentials-head p{margin-left:0}.footer-links{flex-wrap:wrap}.footer-links a{margin:0}}
+
+/* Keep all four projects in a balanced two-by-two desktop grid. */
+@media(min-width:801px){.project:nth-child(3){grid-column:span 6}}
