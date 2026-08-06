@@ -1,0 +1,29 @@
+.magic-card {
+  position: relative;
+  border-radius: 4px;
+  background: rgba(10, 10, 10, 0.88);
+  border: 1px solid rgba(236, 232, 225, 0.16);
+  overflow: hidden;
+}
+
+.magic-card-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  background: radial-gradient(
+    280px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(236, 232, 225, 0.07),
+    transparent 70%
+  );
+}
+
+.magic-card:hover .magic-card-glow {
+  opacity: 1;
+}
+
+.magic-card-content {
+  position: relative;
+  z-index: 1;
+}

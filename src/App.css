@@ -465,9 +465,13 @@
   }
 }
 
-/* Neobrutalism Custom Pointer Arrow Cursor */
+/* Custom cursor disabled while NeoCursor is not mounted */
 body, a, button, input, select {
-  cursor: none !important;
+  cursor: auto;
+}
+
+a, button {
+  cursor: pointer;
 }
 
 .neo-svg-cursor {
