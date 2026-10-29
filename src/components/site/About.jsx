@@ -1,0 +1,2 @@
+import { profile } from '../../data/profile';
+export default function About() { return <section id="about" className="section dark"><div className="container about-layout"><div><p className="label">About</p><h2>Curious by default.<br /><em>Reliable</em> by design.</h2></div><div><p className="lead">{profile.about}</p><dl className="stats"><div><dt>81</dt><dd>merged PRs at Cradle</dd></div><div><dt>8.95</dt><dd>CGPA / 10</dd></div><div><dt>3</dt><dd>hackathon wins</dd></div></dl></div></div></section>; }

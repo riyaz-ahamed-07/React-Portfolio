@@ -1,0 +1,2 @@
+import ExternalLink from './ExternalLink';
+export default function ProjectCard({ project }) { return <article className="project-card"><p className="label">{project.tag}</p><h3>{project.title}</h3><p className="project-description">{project.description}</p><p className="stack">{project.stack}</p><div className="actions">{project.live && <ExternalLink href={project.live} label={'View ' + project.title + ' live'}>Live</ExternalLink>}<ExternalLink href={project.github} label={project.title + ' source on GitHub'}>GitHub</ExternalLink></div></article>; }

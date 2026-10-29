@@ -1,0 +1,1 @@
+export default function Footer() { return <footer className="site-footer"><div className="container"><p>© 2026 Mohamed Riyaz Ahamed · Chennai, India</p><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div></footer>; }

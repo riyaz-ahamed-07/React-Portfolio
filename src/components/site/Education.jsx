@@ -1,0 +1,2 @@
+import { education } from '../../data/profile';
+export default function Education() { return <section id="education" className="section tinted"><div className="container education-layout"><div><p className="label">Education</p><h2>The <em>foundation.</em></h2></div><article><h3>{education.title}</h3><p>{education.institution}</p><p>{education.date}</p><strong>{education.result}</strong></article></div></section>; }

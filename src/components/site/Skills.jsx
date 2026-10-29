@@ -1,0 +1,2 @@
+import { skills } from '../../data/profile';
+export default function Skills() { return <section id="skills" className="section container"><div className="section-heading"><p className="label">Skills</p><h2>From model<br /><em>to interface.</em></h2></div><div className="skill-groups">{skills.map(group => <article key={group.title}><h3>{group.title}</h3><ul className="chips">{group.items.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div></section>; }
