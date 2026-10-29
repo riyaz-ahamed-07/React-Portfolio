@@ -28,7 +28,6 @@ export default function Hero() {
         <a className="button" href={links.resume} download>Download resume</a>
         <a className="text-link" href={links.email}>Email me</a>
       </div>
-      <ul className="chips proof-chips">{profile.chips.map(chip => <li key={chip}>{chip}</li>)}</ul>
       <div className="hero-foot"><span className="label">Scroll to explore <span aria-hidden="true">↓</span></span><span className="label" aria-live="off">Local time · {time}</span></div>
     </div>
   </section>;

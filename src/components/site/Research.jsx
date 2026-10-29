@@ -1,2 +1,0 @@
-import { research } from '../../data/profile';
-export default function Research() { return <section id="research" className="section dark"><div className="container research-layout"><div><p className="label">Research</p><h2>Questions worth<br /><em>staying with.</em></h2></div><article><h3>{research.title}</h3><p className="label">{research.context}</p><p>{research.description}</p></article></div></section>; }

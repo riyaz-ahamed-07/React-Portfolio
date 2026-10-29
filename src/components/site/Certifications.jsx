@@ -1,3 +1,0 @@
-import { certifications } from '../../data/profile';
-import ExternalLink from './ExternalLink';
-export default function Certifications() { return <section id="certifications" className="section container"><div className="section-heading"><p className="label">Certifications</p><h2>Proof of work,<br /><em>on paper.</em></h2></div><div className="certification-grid">{certifications.map(item => <article key={item.title}><p className="label">{item.issuer} · {item.date}</p><h3>{item.title}</h3><ExternalLink href={item.href} label={'Verify ' + item.title}>Verify credential</ExternalLink></article>)}</div></section>; }

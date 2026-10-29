@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { links } from '../../data/profile';
-const items = ['Work', 'Experience', 'Hackathons', 'Skills', 'About', 'Contact'];
+const items = ['About', 'Work', 'Experience', 'Background', 'Contact'];
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const button = useRef(null);
